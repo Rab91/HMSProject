@@ -36,7 +36,7 @@ const app = express();
 //configure middlewares
 app.use(express.json())
 app.use(cors({
-    origin: ["http://localhost:5173"]
+    origin: [process.env.frontendUrl]
 }))
 
 //configure routes
@@ -55,7 +55,7 @@ mongoose.connect(process.env.DB_URL)
     // start the socket server
     const io = new Server(myapp, {
         cors: {
-          origin: ["http://localhost:5173"],
+          origin: [process.env.frontendUrl],
         },
         
     })
