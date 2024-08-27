@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "../../App.css";
-import UpdateProfile from "../common/updateProfile/updateProfile";
+import UpdateProfile from "../common/updateProfile/UpdateProfile";
 import DoctorsTab from "./DoctorsTab";
 import { useSelector,useDispatch } from "react-redux";
 import { logout } from "../../redux/slices/authSlice";

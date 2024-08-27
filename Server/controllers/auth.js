@@ -60,7 +60,7 @@ const signup = async(req,res)=>{
 const login = async(req,res)=>{
     try{
         const {email,password}= req.body;
-
+        console.log(password)
         // check if email is correct
         const user = await User.findOne({email})
         if(!user){
