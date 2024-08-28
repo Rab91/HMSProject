@@ -36,7 +36,9 @@ const app = express();
 //configure middlewares
 app.use(express.json())
 app.use(cors({
-    origin: [process.env.frontendUrl || "https://hmsproject-pf41.onrender.com"]
+    origin: ["http://localhost:5173" || "https://hms-project-c2nd-git-main-rab91s-projects.vercel.app"], 
+    methods: ["GET", "POST", "PUT", "DELETE"], 
+    credentials: true,
 }))
 
 //configure routes
@@ -55,7 +57,9 @@ mongoose.connect(process.env.DB_URL)
     // start the socket server
     const io = new Server(myapp, {
         cors: {
-          origin: [process.env.frontendUrl || "https://hmsproject-pf41.onrender.com"],
+            origin: ["http://localhost:5173" || "https://hms-project-c2nd-git-main-rab91s-projects.vercel.app"],
+            methods: ["GET", "POST"],
+            credentials: true
         },
         
     })
