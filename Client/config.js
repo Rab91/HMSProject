@@ -1,1 +1,1 @@
-export const BASE_URL = "https://hms-project-api.vercel.app"
+export const BASE_URL = "https://hmsproject-pf41.onrender.com"
