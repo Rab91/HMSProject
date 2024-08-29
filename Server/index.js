@@ -36,7 +36,7 @@ const app = express();
 //configure middlewares
 app.use(express.json())
 app.use(cors({
-    origin: ["http://localhost:5173","https://hms-project-sigma.vercel.app"], 
+    origin: ["http://localhost:5173","https://hms-project-eta.vercel.app"], 
     methods: ["GET", "POST", "PUT", "DELETE"], 
     credentials: true,
 }))
@@ -57,7 +57,7 @@ mongoose.connect(process.env.DB_URL)
     // start the socket server
     const io = new Server(myapp, {
         cors: {
-            origin: ["http://localhost:5173","https://hms-project-sigma.vercel.app"],
+            origin: ["http://localhost:5173","https://hms-project-eta.vercel.app"],
             methods: ["GET", "POST"],
             credentials: true
         },
