@@ -5,6 +5,7 @@ export const loginAction = createAsyncThunk("login",async({email,password})=>{
     console.log(email,password);
     const data = await fetch(`${BASE_URL}/auth/login`,{
         method: "POST",
+        credentials: 'include',
         body: JSON.stringify({email,password}),
         headers: {
             "Content-Type": "application/json",

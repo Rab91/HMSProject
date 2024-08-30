@@ -41,6 +41,11 @@ app.use(cors({
     credentials: true,
 }))
 
+app.options('*', cors({
+    origin: ["http://localhost:5173", "https://hms-project-eta.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+}));
 //configure routes
 app.use("/auth",authRoutes);
 
@@ -55,14 +60,14 @@ mongoose.connect(process.env.DB_URL)
 .then(()=>{
     const myapp = app.listen(Port,()=>console.log("Port running on 8000"))
     // start the socket server
-    const io = new Server(myapp, {
-        cors: {
-            origin: ["http://localhost:5173","https://hms-project-eta.vercel.app"],
-            methods: ["GET", "POST"],
-            credentials: true
-        },
-        
-    })
+        const io = new Server(myapp, {
+            cors: {
+                origin: ["http://localhost:5173","https://hms-project-eta.vercel.app"],
+                methods: ["GET", "POST"],
+                credentials: true
+            },
+            
+        })
     io.on('connection', (socket) => {
         console.log('connected',socket.id);
         socket.on("disconnect",()=>{
