@@ -35,17 +35,8 @@ const app = express();
 
 //configure middlewares
 app.use(express.json())
-app.use(cors({
-    origin: ["http://localhost:5173","https://hms-project-eta.vercel.app"], 
-    methods: ["GET", "POST", "PUT", "DELETE"], 
-    credentials: true,
-}))
+app.use(cors())
 
-app.options('*', cors({
-    origin: ["http://localhost:5173", "https://hms-project-eta.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-}));
 //configure routes
 app.use("/auth",authRoutes);
 
